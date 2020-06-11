@@ -10,9 +10,7 @@
     <div class="main main-with-padding">
 
         <!--page header section start-->
-        <section class="page-header-section ptb-100 gradient-overlay"
-                 style="background: url('{% static "img/hero-13.jpg" %}') no-repeat center center
-                         / cover">
+        <section class="page-header-section ptb-100 gradient-overlay">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-md-8 col-lg-8">
@@ -45,7 +43,6 @@
 
                             <div class="section-heading text-center mb-5">
                                 <h2>Coming Meetings</h2>
-                                <p class="lead">Sorry! There's no coming meetings!</p>
                             </div>
                         </div>
                     </div>
@@ -78,8 +75,7 @@
                                     </span>
                                         </td>
                                         <td>
-                                            <a href="{% url "meeting" attending.meeting.room_id %}"
-                                               class="btn primary-solid-btn">Enter</a>
+                                            <a href="{% url 'meeting' attending.meeting.room_id %}" class="btn primary-solid-btn text-white">Enter</a>
                                         </td>
                                     </tr>
                                 {% endfor %}
