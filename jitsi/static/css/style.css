@@ -1,0 +1,336 @@
+
+.offer-block{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+.offer-block:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    background: url('../img/offer-bg.png')no-repeat center center / cover;
+}
+
+.vps-hosting-pricing-table {
+    overflow: visible;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    border-collapse: unset;
+    border-spacing: 0 10px;
+}
+.domain-search-result-table{
+    border-collapse: collapse;
+}
+.vps-hosting-pricing-table > thead {
+    background-color: transparent;
+}
+
+.vps-hosting-pricing-table.vps-hosting-pricing-table-two {
+    border-collapse: collapse;
+}
+
+.vps-hosting-pricing-table > thead > tr > th {
+    border: none;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    vertical-align: middle;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.vps-pricing-row {
+    text-align: left;
+    -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .05);
+    background-color: #fff;
+    border: solid 1px #ebebeb;
+    -webkit-transition: all .1s linear;
+    transition: all .1s linear;
+}
+
+.vps-pricing-row > td:first-child {
+    border-left: 2px solid transparent;
+    border-radius: 4px 0 0 4px;
+}
+
+.vps-pricing-row > td:last-child {
+    border-right: 2px solid transparent;
+    border-radius: 0 4px 4px 0;
+    text-align: right;
+}
+
+.vps-hosting-pricing-table > tbody > tr.vps-pricing-row:hover {
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+}
+
+.vps-hosting-pricing-table-two > thead {
+    background: #0073ec;
+    color: #ffffff;
+}
+
+.vps-hosting-pricing-table-two > thead > tr > th:last-child {
+    border-right: 1px solid #0073ec;
+}
+
+.vps-hosting-pricing-table-two .vps-pricing-row > td:first-child {
+    border-left: initial;
+}
+
+.vps-hosting-pricing-table-two .vps-pricing-row > td:last-child {
+    border-right: initial;
+}
+
+.vps-hosting-pricing-table-two > tbody > tr.vps-pricing-row:hover {
+    background: #f5f5f5;
+    border: none;
+}
+
+.vps-hosting-pricing-table > tbody > tr > td {
+    padding: 20px 20px;
+    border-right: none;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1;
+    vertical-align: middle;
+}
+.vps-hosting-pricing-table.domain-search-result-table > tbody > tr > td{
+    font-size: 14px;
+}
+.vps-pricing-row > td {
+    border: none;
+}
+
+.vps-hosting-pricing-table .rate {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0073ec;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.vps-hosting-pricing-table .rate span {
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 5px;
+    opacity: 0.8;
+    color: #757575;
+}
+
+.vps-hosting-pricing-table .score-bar-wrap {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.vps-hosting-pricing-table .geekbench-score {
+    font-weight: 400;
+    margin-right: 15px;
+}
+
+.vps-hosting-pricing-table .score-bar-wrap .score-bar-item {
+    min-width: 40px;
+    height: 10px;
+    font-size: 10px;
+    border-radius: 10px;
+    background-color: #ebebeb;
+    position: relative;
+}
+
+.vps-hosting-pricing-table .pricing-onsale, .vps-hosting-pricing-table .cpu-core {
+    display: block;
+    font-size: 14px;
+    color: #757575;
+    margin-top: 4px;
+    font-weight: 400;
+}
+
+.vps-hosting-pricing-table > tbody > tr > td:first-child::before {
+    content: attr(data-value);
+    display: none;
+    width: initial;
+    height: initial;
+    background-color: transparent;
+    position: relative;
+    left: initial;
+    top: initial;
+    opacity: 1;
+}
+
+.vps-pricing-row > td:before {
+    content: attr(data-value);
+    display: none;
+}
+
+table > tbody > tr > td:first-child:before {
+    content: '';
+    display: block;
+    width: 3px;
+    height: 100%;
+    background-color: #0073ec;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    -webkit-transition: all .3s ease;
+    -o-transition: all .3s ease;
+    transition: all .3s ease;
+}
+
+@media (max-width: 991px) {
+    .vps-hosting-pricing-table > thead {
+        display: none;
+    }
+
+    .vps-pricing-row {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        border-radius: 4px;
+        width: 45%;
+        float: left;
+        margin: 0 15px 28px 15px;
+    }
+
+    .vps-hosting-pricing-table > tbody > tr{
+        padding: 15px;
+    }
+    .vps-hosting-pricing-table > tbody > tr > td {
+        padding: 10px 15px;
+        font-size: 14px;
+        font-weight: normal;
+    }
+
+    .vps-pricing-row:hover.border-accent-primary > td:first-child {
+        margin-bottom: 0;
+        border-radius: 0;
+        border-left: none;
+    }
+
+    .vps-pricing-row > td:first-child {
+        border-left: none;
+        border-radius: 0;
+    }
+
+    .vps-hosting-pricing-table > tbody > tr > td:first-child::before {
+        display: block;
+        width: 45%;
+    }
+
+    .vps-pricing-row > td:before {
+        display: block;
+        width: 45%;
+    }
+
+    .vps-hosting-pricing-table > tbody > tr > td {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .vps-pricing-row > td:last-child::before {
+        display: none;
+    }
+
+    .vps-pricing-row > td:last-child {
+        text-align: center !important;
+        margin: auto;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .vps-pricing-row {
+        width: 100%;
+        float: none;
+        margin-left: auto;
+        margin-bottom: 15px;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px){
+    .vps-pricing-row td a.primary-solid-btn{
+        padding: 8px 12px !important;
+    }
+}
+
+/*domain search list css*/
+.title-alert span.red{
+    color: red;
+}
+.title-alert span.success{
+    color: green;
+}
+.domain-filter-title, .domain-filter-list li label{
+    cursor: pointer;
+}
+.domain-filter-list li label{
+    display: inline-block;
+    width: 100%;
+}
+.domain-filter-list li label .form-check-input{
+    margin-top: 0.53rem;
+}
+@media (max-width: 1199.98px){
+    .domain-filter-list{
+        display: none;
+    }
+    .domain-filter-title h5 span{
+        display: block;
+    }
+}
+
+@media (min-width: 992px){
+    .domain-filter-list{
+        display: block !important;
+    }
+    .domain-filter-title h5 span{
+        display: none !important;
+    }
+
+}
+.vps-hosting-pricing-table.alert-table > tbody > tr > td{
+    font-size: 18px;
+}
+.alert-table tbody tr{
+    border-color: #7100b9;
+    border-radius: 4px;
+}
+.alert-table .vps-pricing-row > td:first-child{
+    border-left: 0;
+}
+.alert-table .vps-pricing-row > td:last-child{
+    border-right: 0;
+}
+@media (max-width: 991px){
+    .vps-hosting-pricing-table.alert-table > tbody > tr > td{
+        display: block;
+    }
+    .alert-table .vps-pricing-row{
+        width: 100%;
+        margin: 0;
+    }
+    .alert-table .vps-pricing-row > td:last-child{
+        margin-left: 0;
+    }
+}

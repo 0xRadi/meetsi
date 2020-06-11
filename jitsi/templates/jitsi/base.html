@@ -1,10 +1,81 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--title-->
+    <title>{% block title %}{% endblock %}</title>
+
+    <!--google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700%7COpen+Sans:400,600&display=swap"
+          rel="stylesheet">
+
+    <!--    Local Static Files -->
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!--responsive css-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    {% block head %}
+        {# Override this in templates to add extra head codes #}
+    {% endblock %}
+
 </head>
 <body>
 
+<!--header section start-->
+<header id="header" class="header-main headroom">
+    <!--topbar start-->
+    <div id="header-top-bar" class="gray-light-bg py-1">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-md-7 col-lg-7">
+                    <div class="topbar-text d-none d-md-block d-lg-block">
+                        <ul class="list-inline">
+                            <li class="list-inline-item">
+                                <span class="ti-quote-right mr-2"></span>
+                                <span><a href="#" style="font-size: 16px;display: inline;">MEETSI</a></span>
+                                <span class="ti-quote-left mr-2"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4">
+                    <div class="topbar-text">
+                        <ul class="list-inline text-right">
+                            <li class="list-inline-item"><a href="#"><span class="ti-user mr-2"></span>Login</a></li>
+                            <li class="list-inline-item"><a href="#"><span class="ti-lock mr-2"></span>Register</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--topbar end-->
+</header>
+<!--header section end-->
+
+<!--body content wrap start-->
+<div class="main">
+
+    {% block body %}
+    {% endblock %}
+</div>
+<!--body content wrap end-->
+
+<!-- Local Scripts -->
+{% block js %}
+{% endblock %}
+
+
+<!--jQuery-->
+<script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+<!--Bootstrap js-->
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>

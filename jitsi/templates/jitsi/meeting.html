@@ -1,10 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'mahfil_base.html' %}
+{% load static %}
 
-</body>
-</html>
+{% block body %}
+
+
+    <!--body content wrap start-->
+    <div class="main main-without-topbar">
+        <section class="gradient-bg ptb-100 height-lg-100vh d-flex">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-2 col-12">
+                        <div class="hero-content-wrap text-white pt-5 pt-sm-5 pt-lg-0 pt-md-0">
+                            <h3 id="title" class="text-white text-center">{{ meeting.subject }}</h3>
+                            <div class="col-12 my-5">
+                                <h5 class="text-white text-center"><span class="ti-user"></span> المَدْعُوّون:</h5>
+                                <ul class="disc-style">
+                                    {% for attendee in attendees %}
+                                        <li>{{ attendee.first_name }} {{ attendee.last_name }}</li>
+                                    {% endfor %}
+                                </ul>
+
+
+                            </div>
+                        </div>
+                        {% if meeting.is_anonymous %}
+                            <div class="col text-center">
+                                <a class="btn solid-white-btn" href="{{ guest_link }}" target="_blank">رابط
+                                    الضيوف</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-10 col-12 h-100">
+                        <div id="mount" class="hero-content-wrap text-white">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!--body content wrap end-->
+{% endblock %}
+
+
+{% block js %}
+    {% verbatim %}
+    <script>
+        function initialise() {
+            fetch(document.location + '/data')
+                .then(response => {
+                    if (response.status === 200) {
+                        response.json().then(settings => {
+                            const api = new JitsiMeetExternalAPI(settings.domain,
+                                {
+                                    parentNode: document.getElementById('mount'),
+                                    roomName: settings.roomName,
+                                    jwt: settings.jwt,
+                                    height: 700
+                                });
+                            api.executeCommand('subject', settings.subject);
+                        });
+                    } else {
+                        document.getElementById('mount').innerText = 'Unable to load';
+                    }
+                });
+        }
+
+    </script>
+    {% endverbatim %}
+    <script src='https://meet.jit.si/external_api.js' onload="initialise()"></script>
+{% endblock %}

@@ -1,10 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}منصة مَحفل{% endblock %}
+{% load static %}
+{% block body %}
 
-</body>
-</html>
+
+
+
+    <!--body content wrap start-->
+    <div class="main main-with-padding">
+
+        <!--page header section start-->
+        <section class="page-header-section ptb-100 gradient-overlay"
+                 style="background: url('{% static "img/hero-13.jpg" %}') no-repeat center center
+                         / cover">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8 col-lg-8">
+                        <div class="page-header-content text-white">
+                            <h1 class="text-white mb-2">منصة مَحْفِل</h1>
+                            <p class="lead">منصة خاصة لعقد الإجتماعات المرئية بشكل آمن</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--page header section end-->
+
+
+        <!--vps hosting pricing plane start-->
+        <section class="vps-pricing-plane ptb-100 gray-light-bg">
+            <div class="container">
+                {% if upcoming.count <= 0 %}
+                    <div class="row justify-content-center">
+                        <div class="col-md-9 col-lg-8">
+                            <div class="section-heading text-center mb-5">
+                                <h2>الإجتماعات القادمة</h2>
+                                <p class="lead">عفواً لا يوجد اي إجتماعات قادمة!</p>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="row justify-content-center">
+                        <div class="col-md-9 col-lg-8">
+
+                            <div class="section-heading text-center mb-5">
+                                <h2>الإجتماعات القادمة</h2>
+                                <p class="lead">هذه قائمة بالإجتماعات القادمة علي منصة مِحفل</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <table class="table meetings-table">
+                                <thead>
+                                <tr>
+                                    <th>التوقيت</th>
+                                    <th>العنوان</th>
+                                    <th>المستضيف</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for attending in upcoming %}
+                                    <tr class="meetings-row border-accent-primary">
+                                        <td data-value="التوقيت">
+                                            <p>
+                                                <span class="meeting-time">{{ attending.meeting.start_time | date:"H:i" }}</span>
+                                                <span class="meeting-date">{{ attending.meeting.start_time | date:"j M" }}</span>
+                                            </p>
+                                        </td>
+                                        <td data-value="العنوان">{{ attending.meeting.subject }}</td>
+                                        <td data-value="المستضيف"><span class="badge color-3 color-3-bg">
+                                        {% if attending.meeting.owner.first_name %}
+                                            {{ attending.meeting.owner.first_name }}
+                                        {% else %}
+                                            {{ attending.meeting.owner.username }}
+                                        {% endif %}
+                                    </span>
+                                        </td>
+                                        <td>
+                                            <a href="{% url "meeting" attending.meeting.room_id %}"
+                                               class="btn primary-solid-btn">الدخول الأن</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </section>
+        <!--vps hosting pricing plane end-->
+
+        <!--call to action section start-->
+        <section class="call-to-action ptb-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-9 col-lg-8">
+                        <div class="call-to-action-content text-center">
+                            <h2>هل تواجه مشكلة؟</h2>
+                            <p>لا داعي للذعر كلنا نواجه مشاكل ايضاً</p>
+                            <div class="action-btns mt-3">
+                                <a href="#" class="btn primary-solid-btn mr-3">تجربة</a>
+                                <a href="#" class="btn outline-btn">تجربة</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--call to action section end-->
+
+    </div>
+    <!--body content wrap end-->
+{% endblock %}
